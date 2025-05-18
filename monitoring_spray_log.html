@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monitoring Spray Log - AutoFreshMist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <style>
+    #log-container {
+      background: #fff5f7;
+      padding: 20px 30px;
+      border-radius: 16px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
+    }
+    h2 {
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      color: #f292ae;
+      margin-bottom: 20px;
+    }
+    #sprayLog li {
+      font-family: 'Quicksand', sans-serif;
+      color: #333;
+      padding: 8px 0;
+      border-bottom: 1px solid #f2d7dd;
+    }
+    .back-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #f5b4c2;
+      border: none;
+      color: white;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #f292ae;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Monitoring Spray Log 🌸</h2>
+    <div id="log-container">
+      <ul id="sprayLog"></ul>
+    </div>
+    <button onclick="location.href='index.html'" class="back-btn">⬅️ Back to Home</button>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBkFAKCBW2dLXlaqR-BFaUGouqj1lGEWGc",
+      authDomain: "autofreshmist-ddc40.firebaseapp.com",
+      databaseURL: "https://autofreshmist-ddc40-default-rtdb.firebaseio.com",
+      projectId: "autofreshmist-ddc40"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    const sprayLog = document.getElementById('sprayLog');
+
+    db.ref('spray_logs').on('value', (snapshot) => {
+      sprayLog.innerHTML = '';
+      snapshot.forEach((log) => {
+        const li = document.createElement('li');
+        li.textContent = `${log.val().timestamp} - ${log.val().action}`;
+        sprayLog.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

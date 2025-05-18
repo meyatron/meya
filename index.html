@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AutoFreshMist Control</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
 </head>
 <body>
   <div id="mist-bg">
-    <!-- Mist particles (more added) -->
+    <!-- Mist particles -->
     <div class="mist-particle" style="width: 80px; height: 80px; left: 10%; animation-delay: 0s;"></div>
     <div class="mist-particle" style="width: 60px; height: 60px; left: 20%; animation-delay: 4s;"></div>
     <div class="mist-particle" style="width: 90px; height: 90px; left: 30%; animation-delay: 8s;"></div>
@@ -25,16 +23,13 @@
     <div class="mist-particle" style="width: 75px; height: 75px; left: 70%; animation-delay: 24s;"></div>
     <div class="mist-particle" style="width: 85px; height: 85px; left: 80%; animation-delay: 28s;"></div>
 
-```
-<!-- Cherry blossom petals -->
-<div class="blossom-petal" style="left: 10%; animation-delay: 1s;"></div>
-<div class="blossom-petal" style="left: 25%; animation-delay: 3s;"></div>
-<div class="blossom-petal" style="left: 40%; animation-delay: 5s;"></div>
-<div class="blossom-petal" style="left: 55%; animation-delay: 7s;"></div>
-<div class="blossom-petal" style="left: 70%; animation-delay: 9s;"></div>
-<div class="blossom-petal" style="left: 85%; animation-delay: 11s;"></div>
-```
-
+    <!-- Cherry blossom petals -->
+    <div class="blossom-petal" style="left: 10%; animation-delay: 1s;"></div>
+    <div class="blossom-petal" style="left: 25%; animation-delay: 3s;"></div>
+    <div class="blossom-petal" style="left: 40%; animation-delay: 5s;"></div>
+    <div class="blossom-petal" style="left: 55%; animation-delay: 7s;"></div>
+    <div class="blossom-petal" style="left: 70%; animation-delay: 9s;"></div>
+    <div class="blossom-petal" style="left: 85%; animation-delay: 11s;"></div>
   </div>
 
   <div id="container">
@@ -49,41 +44,38 @@
       <div id="loginError">Invalid email or password.</div>
     </form>
 
-```
-<!-- Navigation -->
-<nav style="display:none;">
-  <button data-section="home">Home</button>
-  <button data-section="about">About Us</button>
-  <button data-section="contact">Contact</button>
-</nav>
+    <!-- Navigation -->
+    <nav style="display:none;">
+      <button data-section="home">Home</button>
+      <button data-section="about">About Us</button>
+      <button data-section="contact">Contact</button>
+    </nav>
 
-<!-- Sections -->
-<section id="home">
-  <h1>AutoFreshMist</h1>
-  <button id="sprayBtn">🌬 Spray Mist</button>
-</section>
+    <!-- Sections -->
+    <section id="home">
+      <h1>AutoFreshMist</h1>
+      <button id="sprayBtn">🌬 Spray Mist</button>
+      <a href="monitoring_spray_log.html">Monitoring Spray Log</a>
+    </section>
 
-<section id="about">
-  <h2>About Us</h2>
-  <p>Welcome to AutoFreshMist! We provide the best mist sprayer automation system for your convenience and freshness.</p>
-  <p>Our mission is to create a clean and refreshing environment through innovative technology.</p>
-  <p>Founded in 2024, we pride ourselves on user-friendly, quality solutions for home and office.</p>
-</section>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Welcome to AutoFreshMist! We provide the best mist sprayer automation system for your convenience and freshness.</p>
+      <p>Our mission is to create a clean and refreshing environment through innovative technology.</p>
+      <p>Founded in 2024, we pride ourselves on user-friendly, quality solutions for home and office.</p>
+    </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>For inquiries, support, or feedback:</p>
-  <ul>
-    <li>Email: <a href="mailto:support@autofreshmist.com">support@autofreshmist.com</a></li>
-    <li>Phone: +1 (555) 123-4567</li>
-    <li>Address: 123 Fresh Lane, Clean City, Country</li>
-  </ul>
-</section>
-```
-
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>For inquiries, support, or feedback:</p>
+      <ul>
+        <li>Email: <a href="mailto:support@autofreshmist.com">support@autofreshmist.com</a></li>
+        <li>Phone: +1 (555) 123-4567</li>
+        <li>Address: 123 Fresh Lane, Clean City, Country</li>
+      </ul>
+    </section>
   </div>
-
-  <script>
+<script>
     // Firebase config and init
     const firebaseConfig = {
       apiKey: "AIzaSyBkFAKCBW2dLXlaqR-BFaUGouqj1lGEWGc",
@@ -151,6 +143,6 @@
         });
     });
   </script>
-
+  
 </body>
-</html>  
+</html>
